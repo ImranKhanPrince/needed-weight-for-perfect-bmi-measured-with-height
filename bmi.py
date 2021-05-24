@@ -2,6 +2,15 @@ import math
 
 #take an input
 usr_input = input("Enter Your Height in feet and inch eg. 5.6 \n=> ")
+
+#checks wheather user inputted right formatted height
+while True:
+  try:
+    usr_input = str(float(usr_input))
+    break
+  except ValueError:
+    usr_input = input("Please Enter Correct Height (Numbers only): ")
+
 try:
   feet , inch = usr_input.split('.',1)
 except:
@@ -17,7 +26,7 @@ weight_min = 18 * (height_cm/100)**2
 weight_max = 25 * (height_cm/100)**2
 
 # use the result to create an optimal bmi string eg. 75 - 95
-print(f"{weight_min:.2f}kg - {weight_max:.2f}kg")
+print(f"\nYour optimal weight would be: {weight_min:.2f}kg - {weight_max:.2f}kg")
 
 
 # 1 inch = 2.54cm
